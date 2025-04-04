@@ -39,5 +39,5 @@ jobs:
           gh extension upgrade github/gh-ado2gh
       
       - name: get Help
-        run: gh ado2gh --help
+        run: gh ado2gh inventory-report --help
 
