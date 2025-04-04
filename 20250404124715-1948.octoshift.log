@@ -1,0 +1,13 @@
+[2025-04-04 12:47:16] [INFO] You are running an up-to-date version of the ado2gh CLI [v1.12.0]
+[2025-04-04 12:47:16] [INFO] GITHUB ORG: Terdockube
+[2025-04-04 12:47:16] [INFO] ADO ORG: sachugk
+[2025-04-04 12:47:16] [INFO] OUTPUT: /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
+[2025-04-04 12:47:16] [INFO] ADO PAT: ***
+[2025-04-04 12:47:16] [INFO] Generating Script...
+[2025-04-04 12:47:18] [INFO] ADO Org: sachugk
+[2025-04-04 12:47:18] [INFO]   Team Project: Github
+[2025-04-04 12:47:18] [INFO]     Repo: Github
+[2025-04-04 12:47:18] [INFO]   Team Project: Space Game
+[2025-04-04 12:47:18] [INFO]     Repo: Space Game
+[2025-04-04 12:47:18] [INFO]   Team Project: MyHealthClinic
+[2025-04-04 12:47:18] [INFO]     Repo: MyHealthClinic
