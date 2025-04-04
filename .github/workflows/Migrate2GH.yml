@@ -68,7 +68,7 @@ jobs:
          git config user.name "sachhugk89"
          git config user.email "sachugk@live.com"
          git add *
-         git diff-index --quiet HEAD || git commit -m "Initial commit" && git push https://${{ secrets.GH_PAT }}@github.com/Migrate2GH.git
+         git diff-index --quiet HEAD || git commit -m "Initial commit" && git push https://${{ secrets.GH_PAT }}@github.com/sachugk89/Migrate2GH.git
      
       - uses: actions/upload-artifact@v4
         with:
