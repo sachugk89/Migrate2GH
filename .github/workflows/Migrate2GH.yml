@@ -43,12 +43,6 @@ jobs:
           gh extension install github/gh-ado2gh
           gh extension upgrade github/gh-ado2gh
       
-      - name: get Help
-        run: |
-          gh ado2gh --help
-          gh ado2gh inventory-report --help
-          pwd
-
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
@@ -71,11 +65,11 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: jasineri/simple-push-action@1294152b1a50564de3fedae458b18350d663c327
         uses: jasineri/simple-push-action@v2
-        #with:
+        with:
           # Repository name
           #repository: # optional, default is ${{ github.repository  }}
           # Personal access token (PAT) used to push the repository.
-         # token: # optional, default is ${{ github.token }}
+          token: ${{ github.GH_PAT }}
           # Ralative path under $GITHUB_WORKSPACE for the repository
           #path: # optional, default is .
           # Files pattern to add, wildcards supported
