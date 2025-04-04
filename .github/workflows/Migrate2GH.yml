@@ -24,6 +24,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       ADO_ORG: ${{ secrets.ADO_ORG }}
       ADO_PAT: ${{ secrets.ADO_PAT }}
+      ADO_PROJECT: ${{ secrets.ADO_PRJ }}
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -47,4 +48,4 @@ jobs:
           gh ado2gh inventory-report --help
 
       - name: getreportfromADO
-        run: gh ado2gh inventory-report
+        run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT --ado-project $ADO_PROJECT
