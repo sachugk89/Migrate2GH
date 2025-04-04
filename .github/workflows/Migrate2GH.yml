@@ -1,12 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+ 
 name: Migrate2GH
-
+ 
+# Controls when the workflow will run
 on:
+  # # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
+  # This workflow contains a single job called "build"
   build:
-    
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: 'QA'
     env:
@@ -14,27 +25,42 @@ jobs:
       ADO_ORG: ${{ secrets.ADO_ORG }}
       ADO_PAT: ${{ secrets.ADO_PAT }}
       ADO_PROJECT: ${{ secrets.ADO_PRJ }}
-      GH_ORG: ${{ secrets.GH_ORG }}
-      GH_PAT: ${{ secrets.GH_PAT }}
-      
-      steps:
 
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
       - name: CheckGH Version
         run: gh --version
 
+      # Runs a set of commands using the runners shell
       - name: Install ado2GH
         run: |
           gh extension install github/gh-ado2gh
           gh extension upgrade github/gh-ado2gh
       
+      - name: get Help
+        run: |
+          gh ado2gh --help
+          gh ado2gh inventory-report --help
+          pwd
+
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
-      - name: CopyReport
+      - name: listfolers
         run: |
          ls -la
          mkdir adoreports
          cp *.csv /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+    
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: adoreport
+      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports 
     
       - name: GenerateScript
         run: |
