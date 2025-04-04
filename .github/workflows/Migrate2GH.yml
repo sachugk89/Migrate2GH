@@ -69,7 +69,7 @@ jobs:
           # Repository name
           #repository: # optional, default is ${{ github.repository  }}
           # Personal access token (PAT) used to push the repository.
-          token: ${{ github.GH_PAT }}
+          token: ${{ secrets.GH_PAT }}
           # Ralative path under $GITHUB_WORKSPACE for the repository
           #path: # optional, default is .
           # Files pattern to add, wildcards supported
