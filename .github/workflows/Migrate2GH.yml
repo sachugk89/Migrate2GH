@@ -65,7 +65,7 @@ jobs:
     
       - name: GenerateScript
         run: |
-          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --gh-token $GH_TOKEN --gh-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
+          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --gh-token $GH_TOKEN --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
       
       - uses: actions/upload-artifact@v4
         with:
