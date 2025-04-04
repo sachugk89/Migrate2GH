@@ -52,4 +52,13 @@ jobs:
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
       - name: listfolers
-        run: ls -la
+        run: |
+         ls -la
+         mkdir adoreports
+         copy *.csv /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+    
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adoreport
+          path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports 
+
