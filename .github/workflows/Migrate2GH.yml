@@ -27,7 +27,7 @@ jobs:
       ADO_PAT: ${{ secrets.ADO_PAT }}
       ADO_PROJECT: ${{ secrets.ADO_PRJ }}
       GH_ORG: ${{ secrets.GH_ORG }}
-            
+                  
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -61,25 +61,15 @@ jobs:
       - name: GenerateScript
         run: |
           gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
-
-      - name: Simple git push action
-        # You may pin to the exact commit or the version.
-        # uses: jasineri/simple-push-action@1294152b1a50564de3fedae458b18350d663c327
-        uses: jasineri/simple-push-action@v2
-        #with:
-          # Repository name
-          #repository: # optional, default is ${{ github.repository  }}
-          # Personal access token (PAT) used to push the repository.
-          #token: ${{ secrets.GH_PAT }}
-          # Ralative path under $GITHUB_WORKSPACE for the repository
-          #path: # optional, default is .
-          # Files pattern to add, wildcards supported
-          #file_pattern: # optional, default is ./*.*
-          # Commit message
-          #message: # optional, default is Update from Github Action at `date`
-          
-      
-      
+     
+      - name: GITPUSH
+        run: |
+         #cd ${{ inputs.path }}
+         git config user.name "sachhugk89"
+         git config user.email "sachugk@live.com"
+         git add *
+         git diff-index --quiet HEAD || git commit -m "Initial commit" && git push https://${{ secrets.GH_PAT }}@github.com/Migrate2GH.git
+     
       - uses: actions/upload-artifact@v4
         with:
           name: adoreport
