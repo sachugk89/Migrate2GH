@@ -46,6 +46,7 @@ jobs:
         run: |
           gh ado2gh --help
           gh ado2gh inventory-report --help
+          pwd
 
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
