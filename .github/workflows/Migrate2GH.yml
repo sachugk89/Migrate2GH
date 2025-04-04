@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
+      ADO_ORG: ${{ secrets.ADO_ORG }}
+      ADO_PAT: ${{ secrets.ADO_PAT }}
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -44,4 +46,4 @@ jobs:
           gh ado2gh inventory-report --help
 
       - name: getreportfromADO
-        run: gh ado2gh inventory-report --ado-org {{ secret.ADO_ORG }} --ado-pat {{ secret.ADO_PAT }} --output-dir ./ado2gh-report
+        run: gh ado2gh inventory-report
