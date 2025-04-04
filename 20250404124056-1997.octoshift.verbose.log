@@ -1,0 +1,26 @@
+[2025-04-04 12:40:56] [DEBUG] HTTP GET: https://www.githubstatus.com/api/v2/incidents/unresolved.json
+[2025-04-04 12:40:57] [DEBUG] RESPONSE (OK): {"page":{"id":"kctbh9vrtdwd","name":"GitHub","url":"https://www.githubstatus.com","time_zone":"Etc/UTC","updated_at":"2025-04-04T11:48:40.808Z"},"incidents":[]}
+[2025-04-04 12:40:57] [DEBUG] HTTP GET: https://raw.githubusercontent.com/github/gh-gei/main/LATEST-VERSION.txt
+[2025-04-04 12:40:57] [DEBUG] RESPONSE (OK): v1.12.0
+
+[2025-04-04 12:40:57] [INFO] You are running an up-to-date version of the ado2gh CLI [v1.12.0]
+[2025-04-04 12:40:57] [INFO] GITHUB ORG: Terdockube
+[2025-04-04 12:40:57] [INFO] ADO ORG: sachugk
+[2025-04-04 12:40:57] [INFO] OUTPUT: /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
+[2025-04-04 12:40:57] [INFO] ADO PAT: ***
+[2025-04-04 12:40:57] [INFO] Generating Script...
+[2025-04-04 12:40:57] [DEBUG] HTTP GET: https://dev.azure.com/sachugk/_apis/projects?api-version=6.1-preview
+[2025-04-04 12:40:57] [DEBUG] RESPONSE (OK): {"count":3,"value":[{"id":"cf76e5fd-757f-4fcb-baac-bffb20a5388d","name":"Github","url":"https://dev.azure.com/sachugk/_apis/projects/cf76e5fd-757f-4fcb-baac-bffb20a5388d","state":"wellFormed","revision":28,"visibility":"private","lastUpdateTime":"2025-03-24T07:14:50.7Z"},{"id":"a7a07043-a181-4e2c-b294-085b83d7ed33","name":"Space Game","url":"https://dev.azure.com/sachugk/_apis/projects/a7a07043-a181-4e2c-b294-085b83d7ed33","state":"wellFormed","revision":20,"visibility":"private","lastUpdateTime":"2020-09-03T06:14:06.57Z"},{"id":"2fe9169b-3fb7-4436-acc4-b54d7b898ee7","name":"MyHealthClinic","url":"https://dev.azure.com/sachugk/_apis/projects/2fe9169b-3fb7-4436-acc4-b54d7b898ee7","state":"wellFormed","revision":11,"visibility":"private","lastUpdateTime":"2020-09-03T05:58:43.81Z"}]}
+[2025-04-04 12:40:57] [DEBUG] HTTP GET: https://dev.azure.com/sachugk/Github/_apis/git/repositories?api-version=6.1-preview.1
+[2025-04-04 12:40:58] [DEBUG] RESPONSE (OK): {"value":[{"id":"7a1209d3-e3c6-4e21-b681-7b6275f3431d","name":"Github","url":"https://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_apis/git/repositories/7a1209d3-e3c6-4e21-b681-7b6275f3431d","project":{"id":"cf76e5fd-757f-4fcb-baac-bffb20a5388d","name":"Github","url":"https://dev.azure.com/sachugk/_apis/projects/cf76e5fd-757f-4fcb-baac-bffb20a5388d","state":"wellFormed","revision":28,"visibility":"private","lastUpdateTime":"2025-03-24T07:14:50.7Z"},"defaultBranch":"refs/heads/main","size":0,"remoteUrl":"https://sachugk@dev.azure.com/sachugk/Github/_git/Github","sshUrl":"git@ssh.dev.azure.com:v3/sachugk/Github/Github","webUrl":"https://dev.azure.com/sachugk/Github/_git/Github","isDisabled":false,"isInMaintenance":false}],"count":1}
+[2025-04-04 12:40:58] [DEBUG] HTTP GET: https://dev.azure.com/sachugk/Space%20Game/_apis/git/repositories?api-version=6.1-preview.1
+[2025-04-04 12:40:58] [DEBUG] RESPONSE (OK): {"value":[{"id":"8734666a-fdcc-4703-8cc1-1b9de352e11e","name":"Space Game","url":"https://dev.azure.com/sachugk/a7a07043-a181-4e2c-b294-085b83d7ed33/_apis/git/repositories/8734666a-fdcc-4703-8cc1-1b9de352e11e","project":{"id":"a7a07043-a181-4e2c-b294-085b83d7ed33","name":"Space Game","url":"https://dev.azure.com/sachugk/_apis/projects/a7a07043-a181-4e2c-b294-085b83d7ed33","state":"wellFormed","revision":20,"visibility":"private","lastUpdateTime":"2020-09-03T06:14:06.57Z"},"defaultBranch":"refs/heads/main","size":734,"remoteUrl":"https://sachugk@dev.azure.com/sachugk/Space%20Game/_git/Space%20Game","sshUrl":"git@ssh.dev.azure.com:v3/sachugk/Space%20Game/Space%20Game","webUrl":"https://dev.azure.com/sachugk/Space%20Game/_git/Space%20Game","isDisabled":false,"isInMaintenance":false}],"count":1}
+[2025-04-04 12:40:58] [DEBUG] HTTP GET: https://dev.azure.com/sachugk/MyHealthClinic/_apis/git/repositories?api-version=6.1-preview.1
+[2025-04-04 12:40:58] [DEBUG] RESPONSE (OK): {"value":[{"id":"dfcfbf47-b9b5-40a2-a8ec-1970dc9a2fd5","name":"MyHealthClinic","url":"https://dev.azure.com/sachugk/2fe9169b-3fb7-4436-acc4-b54d7b898ee7/_apis/git/repositories/dfcfbf47-b9b5-40a2-a8ec-1970dc9a2fd5","project":{"id":"2fe9169b-3fb7-4436-acc4-b54d7b898ee7","name":"MyHealthClinic","url":"https://dev.azure.com/sachugk/_apis/projects/2fe9169b-3fb7-4436-acc4-b54d7b898ee7","state":"wellFormed","revision":11,"visibility":"private","lastUpdateTime":"2020-09-03T05:58:43.81Z"},"defaultBranch":"refs/heads/main","size":734,"remoteUrl":"https://sachugk@dev.azure.com/sachugk/MyHealthClinic/_git/MyHealthClinic","sshUrl":"git@ssh.dev.azure.com:v3/sachugk/MyHealthClinic/MyHealthClinic","webUrl":"https://dev.azure.com/sachugk/MyHealthClinic/_git/MyHealthClinic","isDisabled":false,"isInMaintenance":false}],"count":1}
+[2025-04-04 12:40:58] [INFO] ADO Org: sachugk
+[2025-04-04 12:40:58] [INFO]   Team Project: Github
+[2025-04-04 12:40:58] [INFO]     Repo: Github
+[2025-04-04 12:40:58] [INFO]   Team Project: Space Game
+[2025-04-04 12:40:58] [INFO]     Repo: Space Game
+[2025-04-04 12:40:58] [INFO]   Team Project: MyHealthClinic
+[2025-04-04 12:40:58] [INFO]     Repo: MyHealthClinic
