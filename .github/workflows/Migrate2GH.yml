@@ -48,6 +48,7 @@ jobs:
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
       - name: listfolers
+        continue-on-error: true
         run: |
          ls -la
          mkdir adoreports
