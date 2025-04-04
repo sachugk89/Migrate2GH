@@ -50,3 +50,6 @@ jobs:
 
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
+
+      - name: listfolers
+        run: ls -la
