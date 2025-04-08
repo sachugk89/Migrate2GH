@@ -66,7 +66,7 @@ jobs:
         run: |
           gh extension install gh-action-importer
           gh extension upgrade gh-action-importer
-          gh actions-importer configure --credentials-file cred/ado.yaml
+          gh actions-importer configure --credentials-file cred/ado.yaml --ado-org $ADO_ORG --ado-project $ADO_PROJECT
           gh actions-importer update
          # gh actions-importer audit azure-devops
         #  gh actions-importer forecast azure-devops
