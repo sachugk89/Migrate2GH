@@ -1,7 +1,7 @@
-- url: https://github.com
+- url: https://github.com/Terdockube
   access_token: {{ secrets.GH_PAT }}
   provider: github
 
-- url: https://dev.azure.com/
+- url: https://dev.azure.com/sachugk
   access_token: {{ secrets.ADO_PAT }}
   provider: azure_devops
