@@ -72,12 +72,16 @@ jobs:
         run: |
           gh extension install github/gh-actions-importer
       - name: configureADOActionImporter
+        run: |
           gh actions-importer configure
       - name: updateADOActionImporter
+        run: |
          # gh actions-importer update
       - name: AuditlADOActionImporter
+        run: |
          # gh actions-importer audit azure-devops
       - name: ForecastADOActionImporter
+        run: |
         #  gh actions-importer forecast azure-devops
           
       - name: GITPUSH
