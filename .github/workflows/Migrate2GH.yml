@@ -64,8 +64,8 @@ jobs:
           gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
       - name: InstalllADOActionImporter
         run: |
-          gh extension install gh-ado-action-importer
-          gh extension upgrade gh-ado-action-importer
+          gh extension install gh-action-importer
+          gh extension upgrade gh-action-importer
           gh actions-importer configure --credentials-file cred/ado.yaml
           gh actions-importer update
           gh actions-importer audit azure-devops
