@@ -71,8 +71,8 @@ jobs:
       - name: InstalllADOActionImporter
         run: |
           gh extension install github/gh-actions-importer
-          gh actions-importer configure
-          gh actions-importer update
+         # gh actions-importer configure
+         # gh actions-importer update
          # gh actions-importer audit azure-devops
         #  gh actions-importer forecast azure-devops
           
