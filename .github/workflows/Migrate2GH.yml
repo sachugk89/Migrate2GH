@@ -76,13 +76,13 @@ jobs:
           gh actions-importer configure
       - name: updateADOActionImporter
         run: |
-         # gh actions-importer update
+          gh actions-importer update
       - name: AuditlADOActionImporter
         run: |
-         # gh actions-importer audit azure-devops
+          gh actions-importer audit azure-devops
       - name: ForecastADOActionImporter
         run: |
-        #  gh actions-importer forecast azure-devops
+          gh actions-importer forecast azure-devops
           
       - name: GITPUSH
         run: |
