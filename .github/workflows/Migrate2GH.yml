@@ -70,19 +70,19 @@ jobs:
           gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
       - name: InstalllADOActionImporter
         run: |
-          gh extension install github/gh-actions-importer
+           gh extension install github/gh-actions-importer
       - name: configureADOActionImporter
         run: |
-          gh actions-importer configure
+           gh actions-importer configure
       - name: updateADOActionImporter
         run: |
-          gh actions-importer update
+           gh actions-importer update
       - name: AuditlADOActionImporter
         run: |
-          gh actions-importer audit azure-devops
+           gh actions-importer audit azure-devops
       - name: ForecastADOActionImporter
         run: |
-          gh actions-importer forecast azure-devops
+           gh actions-importer forecast azure-devops
           
       - name: GITPUSH
         run: |
