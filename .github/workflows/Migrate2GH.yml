@@ -68,12 +68,12 @@ jobs:
           gh extension upgrade gh-action-importer
           gh actions-importer configure --credentials-file cred/ado.yaml
           gh actions-importer update
-          gh actions-importer audit azure-devops
-          gh actions-importer forecast azure-devops
+         # gh actions-importer audit azure-devops
+        #  gh actions-importer forecast azure-devops
           
       - name: GITPUSH
         run: |
-         #cd ${{ inputs.path }}
+         
          git config user.name "sachhugk89"
          git config user.email "sachugk@live.com"
          git add *
