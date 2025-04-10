@@ -44,6 +44,11 @@ jobs:
           gh extension install github/gh-ado2gh
           gh extension upgrade github/gh-ado2gh
       
+      - name : ChnageDir
+        run: |
+          mkdir HomeADO2GH
+          cd HomeADO2GH
+      
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
