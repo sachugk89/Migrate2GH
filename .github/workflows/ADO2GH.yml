@@ -48,9 +48,12 @@ jobs:
         run: |
           mkdir HomeADO2GH
           cd HomeADO2GH
+          ls -ltr
       
       - name: getreportfromADO
-        run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
+        run: |
+          cd HomeADO2GH
+          gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
       # - name: GenerateScript
       #   run: |
