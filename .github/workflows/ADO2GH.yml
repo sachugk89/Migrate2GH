@@ -1,0 +1,86 @@
+# This is a basic workflow to help you get started with Actions
+ 
+name: ADO2GH
+ 
+# Controls when the workflow will run
+on:
+  # # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    environment: 'QA'
+    env:
+      #GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ secrets.GH_PULLSEC }}
+      ADO_ORG: ${{ secrets.ADO_ORG }}
+      ADO_PAT: ${{ secrets.ADO_PAT }}
+      ADO_PROJECT: ${{ secrets.ADO_PRJ }}
+      GH_ORG: ${{ secrets.GH_ORG }}
+      GITHUB_ACCESS_TOKEN : ${{ secrets.GH_PULLSEC }}
+      GITHUB_INSTANCE_URL : "https://github.com"
+      AZURE_DEVOPS_ACCESS_TOKEN : ${{ secrets.ADO_PAT }}
+      AZURE_DEVOPS_INSTANCE_URL : "https://dev.azure.com"
+      AZURE_DEVOPS_ORGANIZATION : ${{ secrets.ADO_ORG }}
+      AZURE_DEVOPS_PROJECT : ${{ secrets.ADO_PRJ }}
+                  
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: CheckGH Version
+        run: gh --version
+
+      # Runs a set of commands using the runners shell
+      - name: Install ado2GH
+        run: |
+          gh extension install github/gh-ado2gh
+          gh extension upgrade github/gh-ado2gh
+      
+      - name: getreportfromADO
+        run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
+
+      - name: listfolers
+        continue-on-error: true
+        run: |
+         ls -la
+         mkdir adoreports
+         cp *.csv /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+    
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: adoreport
+      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports 
+    
+      - name: GenerateScript
+        run: |
+          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrateADO2GH.ps1
+      
+          
+      - name: GITPUSH
+        run: |
+         
+         git config user.name "sachhugk89"
+         git config user.email "sachugk@live.com"
+         git add *
+         git diff-index --quiet HEAD || git commit -m "Initial commit" && git push https://${{ secrets.GH_PULLSEC }}@github.com/sachugk89/Migrate2GH.git
+     
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: adoreport
+      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+          
+
