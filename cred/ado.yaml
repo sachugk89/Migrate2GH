@@ -1,7 +1,0 @@
-- url: https://github.com/
-  access_token: {{ secrets.GH_PAT }}
-  provider: github
-
-- url: https://dev.azure.com/
-  access_token: {{ secrets.ADO_PAT }}
-  provider: azure_devops
