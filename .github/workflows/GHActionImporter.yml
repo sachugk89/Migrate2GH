@@ -31,8 +31,9 @@ jobs:
       GITHUB_INSTANCE_URL : "https://github.com"
       AZURE_DEVOPS_ACCESS_TOKEN : ${{ secrets.ADO_PAT }}
       AZURE_DEVOPS_INSTANCE_URL : "https://dev.azure.com"
-      AZURE_DEVOPS_ORG : ${{ secrets.ADO_ORG }}
+      AZURE_DEVOPS_ORGANIZATION : ${{ secrets.ADO_ORG }}
       AZURE_DEVOPS_PROJECT : ${{ secrets.ADO_PRJ }}
+      
              
 
     # Steps represent a sequence of tasks that will be executed as part of the job
