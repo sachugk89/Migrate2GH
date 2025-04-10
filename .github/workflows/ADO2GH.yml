@@ -27,13 +27,7 @@ jobs:
       ADO_PAT: ${{ secrets.ADO_PAT }}
       ADO_PROJECT: ${{ secrets.ADO_PRJ }}
       GH_ORG: ${{ secrets.GH_ORG }}
-      GITHUB_ACCESS_TOKEN : ${{ secrets.GH_PULLSEC }}
-      GITHUB_INSTANCE_URL : "https://github.com"
-      AZURE_DEVOPS_ACCESS_TOKEN : ${{ secrets.ADO_PAT }}
-      AZURE_DEVOPS_INSTANCE_URL : "https://dev.azure.com"
-      AZURE_DEVOPS_ORGANIZATION : ${{ secrets.ADO_ORG }}
-      AZURE_DEVOPS_PROJECT : ${{ secrets.ADO_PRJ }}
-                  
+                 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -53,17 +47,9 @@ jobs:
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
-      - name: listfolers
-        continue-on-error: true
-        run: |
-         ls -la
-         mkdir adoreports
-         cp *.csv /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+
     
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: adoreport
-      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports 
+
     
       - name: GenerateScript
         run: |
