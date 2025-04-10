@@ -47,13 +47,9 @@ jobs:
       - name: getreportfromADO
         run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
-
-    
-
-    
-      - name: GenerateScript
-        run: |
-          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrateADO2GH.ps1
+      # - name: GenerateScript
+      #   run: |
+      #     gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrateADO2GH.ps1
       
           
       - name: GITPUSH
