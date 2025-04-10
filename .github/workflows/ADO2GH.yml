@@ -58,7 +58,7 @@ jobs:
 
       - name: GenerateScript
         run: |
-          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/HomeADO2GH.ps1
+          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/HomeADO2GH/HomeADO2GH.ps1
       
           
       - name: GITPUSH
