@@ -45,6 +45,7 @@ jobs:
           gh extension upgrade github/gh-ado2gh
       
       - name : ChnageDir
+        continue-on-error: true
         run: |
           mkdir HomeADO2GH
           cd HomeADO2GH
@@ -55,9 +56,9 @@ jobs:
           cd HomeADO2GH
           gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
 
-      # - name: GenerateScript
-      #   run: |
-      #     gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrateADO2GH.ps1
+      - name: GenerateScript
+        run: |
+          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/HomeADO2GH.ps1
       
           
       - name: GITPUSH

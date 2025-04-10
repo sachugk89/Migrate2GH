@@ -44,6 +44,7 @@ jobs:
       - name: CheckGH Version
         run: gh --version
       - name : MakeHomeImporter
+        continue-on-error: true
         run: |
           mkdir HomeGHAImporter 
           cd HomeGHAImporter 
@@ -51,20 +52,24 @@ jobs:
         run: |
           cd HomeGHAImporter 
           gh extension install github/gh-actions-importer
+      
       - name: configureADOActionImporter
+        continue-on-error: true
         run: |
-          continure-on-error : true
           cd HomeGHAImporter 
           gh actions-importer configure
       - name: updateADOActionImporter
+        continue-on-error: true
         run: |
           cd HomeGHAImporter 
           gh actions-importer update
       - name: AuditlADOActionImporter
+        continue-on-error: true
         run: |
           cd HomeGHAImporter 
           gh actions-importer audit azure-devops
       - name: ForecastADOActionImporter
+        continue-on-error: true
         run: |
           cd HomeGHAImporter 
           gh actions-importer forecast azure-devops
