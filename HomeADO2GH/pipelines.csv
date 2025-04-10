@@ -1,1 +1,5 @@
 org,teamproject,repo,pipeline,url
+"sachugk","Github","Github","\.netbuild","https://dev.azure.com/sachugk/Github/_build?definitionId=2"
+"sachugk","Space Game","Space Game","\javabuild","https://dev.azure.com/sachugk/Space%20Game/_build?definitionId=5"
+"sachugk","Space Game","Space Game","\pythonbuild","https://dev.azure.com/sachugk/Space%20Game/_build?definitionId=4"
+"sachugk","MyHealthClinic","MyHealthClinic","\nodejsbuild","https://dev.azure.com/sachugk/MyHealthClinic/_build?definitionId=3"
