@@ -31,9 +31,9 @@ jobs:
       GITHUB_INSTANCE_URL : "https://github.com"
       AZURE_DEVOPS_ACCESS_TOKEN : ${{ secrets.ADO_PAT }}
       AZURE_DEVOPS_INSTANCE_URL : "https://dev.azure.com"
-      AZURE_DEVOPS_ORGANIZATION : ${{ secrets.ADO_ORG }}
+      AZURE_DEVOPS_ORG : ${{ secrets.ADO_ORG }}
       AZURE_DEVOPS_PROJECT : ${{ secrets.ADO_PRJ }}
-                  
+             
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -43,46 +43,30 @@ jobs:
       # Runs a single command using the runners shell
       - name: CheckGH Version
         run: gh --version
-
-      # Runs a set of commands using the runners shell
-      - name: Install ado2GH
+      - name : MakeHomeImporter
         run: |
-          gh extension install github/gh-ado2gh
-          gh extension upgrade github/gh-ado2gh
-      
-      - name: getreportfromADO
-        run: gh ado2gh inventory-report --ado-org $ADO_ORG --ado-pat $ADO_PAT
-
-      - name: listfolers
-        continue-on-error: true
-        run: |
-         ls -la
-         mkdir adoreports
-         cp *.csv /home/runner/work/Migrate2GH/Migrate2GH/adoreports
-    
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: adoreport
-      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports 
-    
-      - name: GenerateScript
-        run: |
-          gh ado2gh generate-script --ado-org $ADO_ORG --ado-pat $ADO_PAT --github-org $GH_ORG --output /home/runner/work/Migrate2GH/Migrate2GH/adoreports/migrate2GH.ps1
+          mkdir HomeGHAImporter 
+          cd HomeGHAImporter 
       - name: InstalllADOActionImporter
         run: |
-           gh extension install github/gh-actions-importer
+          cd HomeGHAImporter 
+          gh extension install github/gh-actions-importer
       - name: configureADOActionImporter
         run: |
-           gh actions-importer configure
+          cd HomeGHAImporter 
+          gh actions-importer configure
       - name: updateADOActionImporter
         run: |
-           gh actions-importer update
+          cd HomeGHAImporter 
+          gh actions-importer update
       - name: AuditlADOActionImporter
         run: |
-           gh actions-importer audit azure-devops
+          cd HomeGHAImporter 
+          gh actions-importer audit azure-devops
       - name: ForecastADOActionImporter
         run: |
-           gh actions-importer forecast azure-devops
+          cd HomeGHAImporter 
+          gh actions-importer forecast azure-devops
           
       - name: GITPUSH
         run: |
@@ -92,9 +76,9 @@ jobs:
          git add *
          git diff-index --quiet HEAD || git commit -m "Initial commit" && git push https://${{ secrets.GH_PULLSEC }}@github.com/sachugk89/Migrate2GH.git
      
-      - uses: actions/upload-artifact@v4
-        with:
-          name: adoreport
-          path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: adoreport
+      #     path: /home/runner/work/Migrate2GH/Migrate2GH/adoreports
           
 
