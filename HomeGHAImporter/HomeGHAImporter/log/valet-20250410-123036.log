@@ -1,0 +1,39 @@
+# Logfile created on 2025-04-10 12:30:36 +0000 by logger.rb/v1.6.0
+I, [2025-04-10T12:30:36.984159 #1]  INFO -- : Using GitHub Features: Defaults
+I, [2025-04-10T12:30:36.984216 #1]  INFO -- : Auditing 'REDACTED://dev.azure.com/sachugk/MyHealthClinic/_build'
+I, [2025-04-10T12:30:36.991720 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/tasks?api-version=5.0-preview
+I, [2025-04-10T12:30:37.885663 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:37.912741 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/build/definitions?api-version=5.0&includeAllProperties=true&queryOrder=lastModifiedDescending
+I, [2025-04-10T12:30:38.513431 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:38.519617 #1]  INFO -- : Thread collection size: 4
+I, [2025-04-10T12:30:38.544963 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/git/repositories/MyHealthClinic/items?api-version=5.0-preview&path=nodejs.yml&versionDescriptor.version=main
+I, [2025-04-10T12:30:39.144951 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:39.147019 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/serviceendpoint/endpoints?api-version=5.0-preview
+I, [2025-04-10T12:30:40.046647 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:40.047785 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/variablegroups?api-version=5.0-preview&queryOrder=idDescending
+I, [2025-04-10T12:30:40.818968 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:40.819761 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/taskgroups?api-version=5.0-preview
+I, [2025-04-10T12:30:41.749397 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:41.752269 #1]  INFO -- request: GET REDACTED://vsrm.dev.azure.com/sachugk/MyHealthClinic/_apis/release/definitions?api-version=5.0&queryOrder=idDescending
+I, [2025-04-10T12:30:42.971828 #1]  INFO -- response: Status 200
+D, [2025-04-10T12:30:42.977647 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'NodeTool@0'
+W, [2025-04-10T12:30:42.980358 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: NodeTool@0
+D, [2025-04-10T12:30:42.982224 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-10T12:30:42.982367 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-10T12:30:42.984910 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-10T12:30:42.986245 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-10T12:30:42.987547 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'AzureWebApp@1'
+W, [2025-04-10T12:30:42.991675 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: AzureWebApp@1
+D, [2025-04-10T12:30:43.006026 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::On]: Located transformer for 'continuousIntegration'
+I, [2025-04-10T12:30:43.043123 #1]  INFO -- : Output file(s):
+I, [2025-04-10T12:30:43.047261 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+I, [2025-04-10T12:30:43.047874 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
+I, [2025-04-10T12:30:43.048484 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/source.yml
+I, [2025-04-10T12:30:43.055605 #1]  INFO -- :   ./HomeGHAImporter/workflow_usage.csv
+I, [2025-04-10T12:30:43.058151 #1]  INFO -- :   ./HomeGHAImporter/audit_summary.md
+W, [2025-04-10T12:30:47.892356 #1]  WARN -- : Secrets redacted in file(s):
+W, [2025-04-10T12:30:47.892682 #1]  WARN -- :   HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
+W, [2025-04-10T12:30:47.892898 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-123036.log
+I, [2025-04-10T12:30:47.906827 #1]  INFO -- request: GET https://api.github.com/user
+I, [2025-04-10T12:30:48.172665 #1]  INFO -- response: Status 200
+I, [2025-04-10T12:30:48.174022 #1]  INFO -- : Sending telemetry with transaction id 'e8ce822c-abef-44bb-a97b-b22f525e4180'

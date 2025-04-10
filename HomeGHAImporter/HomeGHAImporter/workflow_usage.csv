@@ -1,0 +1,10 @@
+Pipeline,Action,File path
+MyHealthClinic/nodejsbuild,actions/checkout@v4.1.0,./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+MyHealthClinic/nodejsbuild,actions/setup-node@v4.0.0,./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+MyHealthClinic/nodejsbuild,azure/login@v1.6.0,./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+MyHealthClinic/nodejsbuild,azure/webapps-deploy@v3.0.0,./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+
+Pipeline,Secret,File path
+MyHealthClinic/nodejsbuild,${{ secrets.AZURE_CREDENTIALS }},./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+
+Pipeline,Runner,File path
