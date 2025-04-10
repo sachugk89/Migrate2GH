@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 'QA'
     env:
-      #GH_TOKEN: ${{ github.token }}
+      
       GH_TOKEN: ${{ secrets.GH_PULLSEC }}
       ADO_ORG: ${{ secrets.ADO_ORG }}
       ADO_PAT: ${{ secrets.ADO_PAT }}
