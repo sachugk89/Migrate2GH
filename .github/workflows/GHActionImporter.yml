@@ -68,12 +68,12 @@ jobs:
         continue-on-error: true
         run: |
           cd HomeGHAImporter 
-          gh actions-importer audit azure-devops --output-dir ../HomeGHAImporter
+          gh actions-importer audit azure-devops --output-dir ./HomeGHAImporter
       - name: ForecastADOActionImporter
         continue-on-error: true
         run: |
           cd HomeGHAImporter 
-          gh actions-importer forecast azure-devops --output-dir ../HomeGHAImporter
+          gh actions-importer forecast azure-devops --output-dir ./HomeGHAImporter
           
       - name: GITPUSH
         run: |
