@@ -1,0 +1,41 @@
+# Logfile created on 2025-04-10 13:10:07 +0000 by logger.rb/v1.6.0
+I, [2025-04-10T13:10:07.788363 #1]  INFO -- : Using GitHub Features: Defaults
+I, [2025-04-10T13:10:07.788422 #1]  INFO -- : Auditing 'REDACTED://dev.azure.com/sachugk/MyHealthClinic/_build'
+I, [2025-04-10T13:10:07.796444 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/tasks?api-version=5.0-preview
+I, [2025-04-10T13:10:08.324244 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:08.352322 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/build/definitions?api-version=5.0&includeAllProperties=true&queryOrder=lastModifiedDescending
+I, [2025-04-10T13:10:08.920177 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:08.927329 #1]  INFO -- : Thread collection size: 4
+I, [2025-04-10T13:10:08.957653 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/git/repositories/MyHealthClinic/items?api-version=5.0-preview&path=nodejs.yml&versionDescriptor.version=main
+I, [2025-04-10T13:10:09.632060 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:09.634286 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/serviceendpoint/endpoints?api-version=5.0-preview
+I, [2025-04-10T13:10:09.893914 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:09.894931 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/variablegroups?api-version=5.0-preview&queryOrder=idDescending
+I, [2025-04-10T13:10:10.305379 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:10.306265 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/taskgroups?api-version=5.0-preview
+I, [2025-04-10T13:10:10.650675 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:10.653357 #1]  INFO -- request: GET REDACTED://vsrm.dev.azure.com/sachugk/MyHealthClinic/_apis/release/definitions?api-version=5.0&queryOrder=idDescending
+I, [2025-04-10T13:10:12.020428 #1]  INFO -- response: Status 200
+D, [2025-04-10T13:10:12.028754 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'NodeTool@0'
+W, [2025-04-10T13:10:12.031171 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: NodeTool@0
+D, [2025-04-10T13:10:12.033881 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-10T13:10:12.034037 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-10T13:10:12.037974 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-10T13:10:12.039332 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-10T13:10:12.041807 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'AzureWebApp@1'
+W, [2025-04-10T13:10:12.054071 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: AzureWebApp@1
+D, [2025-04-10T13:10:12.058524 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::On]: Located transformer for 'continuousIntegration'
+I, [2025-04-10T13:10:12.094992 #1]  INFO -- : Output file(s):
+I, [2025-04-10T13:10:12.098397 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/.github/workflows/nodejsbuild.yml
+I, [2025-04-10T13:10:12.099115 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
+I, [2025-04-10T13:10:12.099841 #1]  INFO -- :   ./HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/source.yml
+I, [2025-04-10T13:10:12.106949 #1]  INFO -- :   ./HomeGHAImporter/workflow_usage.csv
+I, [2025-04-10T13:10:12.109648 #1]  INFO -- :   ./HomeGHAImporter/audit_summary.md
+W, [2025-04-10T13:10:16.876660 #1]  WARN -- : Secrets redacted in file(s):
+W, [2025-04-10T13:10:16.877273 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-123053.log
+W, [2025-04-10T13:10:16.877629 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-123036.log
+W, [2025-04-10T13:10:16.878004 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-131007.log
+W, [2025-04-10T13:10:16.878350 #1]  WARN -- :   HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
+I, [2025-04-10T13:10:16.892345 #1]  INFO -- request: GET https://api.github.com/user
+I, [2025-04-10T13:10:17.097436 #1]  INFO -- response: Status 200
+I, [2025-04-10T13:10:17.098698 #1]  INFO -- : Sending telemetry with transaction id '2f799afa-7551-45db-9631-1dda61c8dc6c'

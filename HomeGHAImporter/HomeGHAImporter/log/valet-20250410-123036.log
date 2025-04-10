@@ -34,6 +34,6 @@ I, [2025-04-10T12:30:43.058151 #1]  INFO -- :   ./HomeGHAImporter/audit_summary.
 W, [2025-04-10T12:30:47.892356 #1]  WARN -- : Secrets redacted in file(s):
 W, [2025-04-10T12:30:47.892682 #1]  WARN -- :   HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
 W, [2025-04-10T12:30:47.892898 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-123036.log
-I, [2025-04-10T12:30:47.906827 #1]  INFO -- request: GET https://api.github.com/user
+I, [2025-04-10T12:30:47.906827 #1]  INFO -- request: GET REDACTED://api.github.com/user
 I, [2025-04-10T12:30:48.172665 #1]  INFO -- response: Status 200
 I, [2025-04-10T12:30:48.174022 #1]  INFO -- : Sending telemetry with transaction id 'e8ce822c-abef-44bb-a97b-b22f525e4180'
