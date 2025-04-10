@@ -54,11 +54,11 @@ jobs:
           cd HomeGHAImporter 
           gh extension install github/gh-actions-importer
       
-      - name: configureADOActionImporter
-        continue-on-error: true
-        run: |
-          cd HomeGHAImporter 
-          gh actions-importer configure
+      # - name: configureADOActionImporter
+      #   continue-on-error: true
+      #   run: |
+      #     cd HomeGHAImporter 
+      #     gh actions-importer configure
       - name: updateADOActionImporter
         continue-on-error: true
         run: |
