@@ -68,7 +68,11 @@ jobs:
         continue-on-error: true
         run: |
           cd HomeGHAImporter 
-          gh actions-importer audit azure-devops --output-dir ./HomeGHAImporter
+          while IFS=, read -r col1 col2; do
+          if [ "$col2" != "ColumnBHeader" ]; then # Skip the header row
+            gh actions-importer audit azure-devops --output-dir ./HomeGHAImporter --project "$col2"
+          fi
+          done < ../../data/team.projects.csv
       - name: ForecastADOActionImporter
         continue-on-error: true
         run: |
