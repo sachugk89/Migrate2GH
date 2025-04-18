@@ -1,0 +1,8 @@
+Pipeline,Action,File path
+Github/.netbuild,actions/checkout@v4.1.0,./HomeGHAImporter/pipelines/Github/.netbuild/.github/workflows/.netbuild.yml
+Github/.netbuild,actions/setup-dotnet@v4.0.0,./HomeGHAImporter/pipelines/Github/.netbuild/.github/workflows/.netbuild.yml
+
+Pipeline,Secret,File path
+
+
+Pipeline,Runner,File path

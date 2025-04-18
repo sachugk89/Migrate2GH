@@ -1,0 +1,18 @@
+name: Github/.netbuild
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+    - uses: actions/setup-dotnet@v4.0.0
+      with:
+        dotnet-version: 5.x
+    - name: Build project
+      run: dotnet build --configuration Release
+    - name: Run tests
+      run: dotnet test --configuration Release

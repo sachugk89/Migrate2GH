@@ -1,23 +1,23 @@
 # Logfile created on 2025-04-18 07:32:18 +0000 by logger.rb/v1.6.0
 I, [2025-04-18T07:32:18.753508 #1]  INFO -- : Using GitHub Features: Defaults
-I, [2025-04-18T07:32:18.753552 #1]  INFO -- : Forecasting 'https://dev.azure.com/sachugk/MyHealthClinic/_build'
-I, [2025-04-18T07:32:18.761034 #1]  INFO -- request: GET https://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/queues?api-version=5.0-preview
+I, [2025-04-18T07:32:18.753552 #1]  INFO -- : Forecasting 'REDACTED://dev.azure.com/sachugk/MyHealthClinic/_build'
+I, [2025-04-18T07:32:18.761034 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/MyHealthClinic/_apis/distributedtask/queues?api-version=5.0-preview
 I, [2025-04-18T07:32:21.391360 #1]  INFO -- response: Status 200
 I, [2025-04-18T07:32:21.393049 #1]  INFO -- : Thread collection size: 4
-I, [2025-04-18T07:32:21.394907 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/1/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:32:21.394957 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/2/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:32:21.394993 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/3/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:32:21.395025 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/4/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.394907 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/1/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.394957 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/2/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.394993 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/3/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.395025 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/4/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:21.753721 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:32:21.754670 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/5/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.754670 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/5/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:21.779572 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:32:21.781206 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/6/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:21.781206 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/6/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:22.086677 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:32:22.087515 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/7/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:22.087515 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/7/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:22.098972 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:32:22.106556 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/8/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:22.106556 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/8/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:22.124990 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:32:22.125527 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/9/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:32:22.125527 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/9/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:32:22.274671 #1]  INFO -- response: Status 200
 I, [2025-04-18T07:32:22.438418 #1]  INFO -- response: Status 200
 I, [2025-04-18T07:32:22.489329 #1]  INFO -- response: Status 200

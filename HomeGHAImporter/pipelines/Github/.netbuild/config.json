@@ -1,0 +1,111 @@
+{
+  "triggers": [
+    {
+      "branchFilters": [
+        "+main"
+      ],
+      "pathFilters": [
+
+      ],
+      "settingsSourceType": 2,
+      "batchChanges": false,
+      "maxConcurrentBuildsPerBranch": 1,
+      "triggerType": "continuousIntegration"
+    }
+  ],
+  "properties": {
+  },
+  "tags": [
+
+  ],
+  "_links": {
+    "self": {
+      "href": "REDACTED://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_apis/build/Definitions/2?revision=2"
+    },
+    "web": {
+      "href": "REDACTED://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_build/definition?definitionId=2"
+    },
+    "editor": {
+      "href": "REDACTED://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_build/designer?id=2&_a=edit-build-definition"
+    },
+    "badge": {
+      "href": "REDACTED://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_apis/build/status/2"
+    }
+  },
+  "jobAuthorizationScope": "projectCollection",
+  "jobTimeoutInMinutes": 60,
+  "jobCancelTimeoutInMinutes": 5,
+  "process": {
+    "yamlFilename": ".netbuild.yml",
+    "type": 2
+  },
+  "repository": {
+    "properties": {
+      "cloneUrl": "REDACTED://sachugk@dev.azure.com/sachugk/Github/_git/Github",
+      "fullName": "Github",
+      "defaultBranch": "refs/heads/main",
+      "isFork": "False",
+      "creationDate": "01/01/0001 00:00:00",
+      "safeRepository": "7a1209d3-e3c6-4e21-b681-7b6275f3431d",
+      "reportBuildStatus": "true",
+      "fetchDepth": "1"
+    },
+    "id": "7a1209d3-e3c6-4e21-b681-7b6275f3431d",
+    "type": "TfsGit",
+    "name": "Github",
+    "url": "REDACTED://dev.azure.com/sachugk/Github/_git/Github",
+    "defaultBranch": "refs/heads/main",
+    "clean": null,
+    "checkoutSubmodules": false
+  },
+  "quality": "definition",
+  "authoredBy": {
+    "displayName": "Sachin Gopalakrishnan",
+    "url": "REDACTED://spsprodcin1.vssps.visualstudio.com/Adca70168-e1a7-45b4-909c-0104c3aa1fcc/_apis/Identities/fdc259f0-63ea-62a9-9497-002240e23f10",
+    "_links": {
+      "avatar": {
+        "href": "REDACTED://dev.azure.com/sachugk/_apis/GraphProfile/MemberAvatars/msa.ZmRjMjU5ZjAtNjNlYS03MmE5LTk0OTctMDAyMjQwZTIzZjEw"
+      }
+    },
+    "id": "fdc259f0-63ea-62a9-9497-002240e23f10",
+    "uniqueName": "sachugk@LIVE.COM",
+    "imageUrl": "REDACTED://dev.azure.com/sachugk/_apis/GraphProfile/MemberAvatars/msa.ZmRjMjU5ZjAtNjNlYS03MmE5LTk0OTctMDAyMjQwZTIzZjEw",
+    "descriptor": "msa.ZmRjMjU5ZjAtNjNlYS03MmE5LTk0OTctMDAyMjQwZTIzZjEw"
+  },
+  "drafts": [
+
+  ],
+  "queue": {
+    "_links": {
+      "self": {
+        "href": "REDACTED://dev.azure.com/sachugk/_apis/build/Queues/27"
+      }
+    },
+    "id": 27,
+    "name": "Azure Pipelines",
+    "url": "REDACTED://dev.azure.com/sachugk/_apis/build/Queues/27",
+    "pool": {
+      "id": 9,
+      "name": "Azure Pipelines",
+      "isHosted": true
+    }
+  },
+  "id": 2,
+  "name": ".netbuild",
+  "url": "REDACTED://dev.azure.com/sachugk/cf76e5fd-757f-4fcb-baac-bffb20a5388d/_apis/build/Definitions/2?revision=2",
+  "uri": "vstfs:///Build/Definition/2",
+  "path": "\\",
+  "type": "build",
+  "queueStatus": "enabled",
+  "revision": 2,
+  "createdDate": "2025-04-10T12:20:10.61Z",
+  "project": {
+    "id": "cf76e5fd-757f-4fcb-baac-bffb20a5388d",
+    "name": "Github",
+    "url": "REDACTED://dev.azure.com/sachugk/_apis/projects/cf76e5fd-757f-4fcb-baac-bffb20a5388d",
+    "state": "wellFormed",
+    "revision": 28,
+    "visibility": "private",
+    "lastUpdateTime": "2025-03-24T07:14:50.7Z"
+  }
+}

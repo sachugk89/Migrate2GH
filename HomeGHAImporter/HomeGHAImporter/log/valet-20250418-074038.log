@@ -1,21 +1,21 @@
 # Logfile created on 2025-04-18 07:40:38 +0000 by logger.rb/v1.6.0
 I, [2025-04-18T07:40:38.515398 #1]  INFO -- : Using GitHub Features: Defaults
-I, [2025-04-18T07:40:38.515439 #1]  INFO -- : Forecasting 'https://dev.azure.com/sachugk/MyHealthClinic/_build'
+I, [2025-04-18T07:40:38.515439 #1]  INFO -- : Forecasting 'REDACTED://dev.azure.com/sachugk/MyHealthClinic/_build'
 I, [2025-04-18T07:40:38.522843 #1]  INFO -- : Thread collection size: 4
-I, [2025-04-18T07:40:38.524744 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/1/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:40:38.524795 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/2/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:40:38.524851 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/3/jobrequests?%24top=200&api-version=5.0
-I, [2025-04-18T07:40:38.524886 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/4/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.524744 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/1/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.524795 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/2/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.524851 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/3/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.524886 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/4/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:38.814131 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:40:38.815068 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/5/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.815068 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/5/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:38.834871 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:40:38.835419 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/6/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.835419 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/6/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:38.946351 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:40:38.947090 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/7/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.947090 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/7/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:38.968615 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:40:38.969141 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/8/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:38.969141 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/8/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:39.192100 #1]  INFO -- response: Status 200
-I, [2025-04-18T07:40:39.192835 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/9/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:40:39.192835 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/pools/9/jobrequests?%24top=200&api-version=5.0
 I, [2025-04-18T07:40:39.663381 #1]  INFO -- response: Status 200
 I, [2025-04-18T07:40:39.686239 #1]  INFO -- response: Status 200
 I, [2025-04-18T07:40:39.728401 #1]  INFO -- response: Status 200

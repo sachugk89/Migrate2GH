@@ -36,6 +36,6 @@ W, [2025-04-10T13:10:16.877273 #1]  WARN -- :   HomeGHAImporter/log/valet-202504
 W, [2025-04-10T13:10:16.877629 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-123036.log
 W, [2025-04-10T13:10:16.878004 #1]  WARN -- :   HomeGHAImporter/log/valet-20250410-131007.log
 W, [2025-04-10T13:10:16.878350 #1]  WARN -- :   HomeGHAImporter/pipelines/MyHealthClinic/nodejsbuild/config.json
-I, [2025-04-10T13:10:16.892345 #1]  INFO -- request: GET https://api.github.com/user
+I, [2025-04-10T13:10:16.892345 #1]  INFO -- request: GET REDACTED://api.github.com/user
 I, [2025-04-10T13:10:17.097436 #1]  INFO -- response: Status 200
 I, [2025-04-10T13:10:17.098698 #1]  INFO -- : Sending telemetry with transaction id '2f799afa-7551-45db-9631-1dda61c8dc6c'

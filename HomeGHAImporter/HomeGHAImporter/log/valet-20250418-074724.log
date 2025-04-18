@@ -1,0 +1,23 @@
+# Logfile created on 2025-04-18 07:47:24 +0000 by logger.rb/v1.6.0
+I, [2025-04-18T07:47:24.332674 #1]  INFO -- : Using GitHub Features: Defaults
+I, [2025-04-18T07:47:24.332708 #1]  INFO -- : Forecasting 'https://dev.azure.com/sachugk/MyHealthClinic/_build'
+I, [2025-04-18T07:47:24.339401 #1]  INFO -- : Thread collection size: 4
+I, [2025-04-18T07:47:24.341119 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/1/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.341165 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/2/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.341214 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/3/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.341249 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/4/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.592279 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.593053 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/5/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.595233 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.595840 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/6/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.619704 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.620209 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/7/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.825627 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.826261 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/8/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.836645 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.845142 #1]  INFO -- request: GET https://dev.azure.com/sachugk/_apis/distributedtask/pools/9/jobrequests?%24top=200&api-version=5.0
+I, [2025-04-18T07:47:24.850699 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:24.923124 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:25.099869 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:25.188024 #1]  INFO -- response: Status 200
+W, [2025-04-18T07:47:25.188345 #1]  WARN -- : No jobs found

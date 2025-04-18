@@ -1,0 +1,44 @@
+# Logfile created on 2025-04-18 07:47:07 +0000 by logger.rb/v1.6.0
+I, [2025-04-18T07:47:07.719276 #1]  INFO -- : Using GitHub Features: Defaults
+I, [2025-04-18T07:47:07.719323 #1]  INFO -- : Auditing 'REDACTED://dev.azure.com/sachugk/Github/_build'
+I, [2025-04-18T07:47:07.725924 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/_apis/distributedtask/tasks?api-version=5.0-preview
+I, [2025-04-18T07:47:08.821271 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:08.876416 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/Github/_apis/build/definitions?api-version=5.0&includeAllProperties=true&queryOrder=lastModifiedDescending
+I, [2025-04-18T07:47:09.415159 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:09.415656 #1]  INFO -- : Thread collection size: 4
+I, [2025-04-18T07:47:09.440708 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/Github/_apis/git/repositories/Github/items?api-version=5.0-preview&path=.netbuild.yml&versionDescriptor.version=main
+I, [2025-04-18T07:47:09.851103 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:09.852753 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/Github/_apis/serviceendpoint/endpoints?api-version=5.0-preview
+I, [2025-04-18T07:47:10.329894 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:10.330585 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/Github/_apis/distributedtask/variablegroups?api-version=5.0-preview&queryOrder=idDescending
+I, [2025-04-18T07:47:10.663567 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:10.664082 #1]  INFO -- request: GET REDACTED://dev.azure.com/sachugk/Github/_apis/distributedtask/taskgroups?api-version=5.0-preview
+I, [2025-04-18T07:47:11.289894 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:11.291903 #1]  INFO -- request: GET REDACTED://vsrm.dev.azure.com/sachugk/Github/_apis/release/definitions?api-version=5.0&queryOrder=idDescending
+I, [2025-04-18T07:47:14.590568 #1]  INFO -- response: Status 200
+D, [2025-04-18T07:47:14.595071 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'UseDotNet@2'
+W, [2025-04-18T07:47:14.595642 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: UseDotNet@2
+D, [2025-04-18T07:47:14.595841 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-18T07:47:14.595963 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-18T07:47:14.596898 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::Steps]: Located transformer for 'script'
+W, [2025-04-18T07:47:14.597028 #1]  WARN -- : There was an error tranforming step, and an array is being surfaced: script
+D, [2025-04-18T07:47:14.597995 #1] DEBUG -- : [Transformers::AzureDevops::Pipeline::On]: Located transformer for 'continuousIntegration'
+I, [2025-04-18T07:47:14.643450 #1]  INFO -- : Output file(s):
+I, [2025-04-18T07:47:14.646783 #1]  INFO -- :   ./HomeGHAImporter/pipelines/Github/.netbuild/.github/workflows/.netbuild.yml
+I, [2025-04-18T07:47:14.648366 #1]  INFO -- :   ./HomeGHAImporter/pipelines/Github/.netbuild/config.json
+I, [2025-04-18T07:47:14.649456 #1]  INFO -- :   ./HomeGHAImporter/pipelines/Github/.netbuild/source.yml
+I, [2025-04-18T07:47:14.653843 #1]  INFO -- :   ./HomeGHAImporter/workflow_usage.csv
+I, [2025-04-18T07:47:14.656998 #1]  INFO -- :   ./HomeGHAImporter/audit_summary.md
+W, [2025-04-18T07:47:19.147849 #1]  WARN -- : Secrets redacted in file(s):
+W, [2025-04-18T07:47:19.148117 #1]  WARN -- :   HomeGHAImporter/HomeGHAImporter/log/valet-20250410-131021.log
+W, [2025-04-18T07:47:19.148250 #1]  WARN -- :   HomeGHAImporter/HomeGHAImporter/log/valet-20250418-073218.log
+W, [2025-04-18T07:47:19.148365 #1]  WARN -- :   HomeGHAImporter/HomeGHAImporter/log/valet-20250418-074038.log
+W, [2025-04-18T07:47:19.148487 #1]  WARN -- :   HomeGHAImporter/HomeGHAImporter/log/valet-20250418-073418.log
+W, [2025-04-18T07:47:19.148599 #1]  WARN -- :   HomeGHAImporter/HomeGHAImporter/log/valet-20250410-131007.log
+W, [2025-04-18T07:47:19.148728 #1]  WARN -- :   HomeGHAImporter/log/valet-20250418-074029.log
+W, [2025-04-18T07:47:19.148852 #1]  WARN -- :   HomeGHAImporter/log/valet-20250418-073414.log
+W, [2025-04-18T07:47:19.148963 #1]  WARN -- :   HomeGHAImporter/log/valet-20250418-074707.log
+W, [2025-04-18T07:47:19.149090 #1]  WARN -- :   HomeGHAImporter/pipelines/Github/.netbuild/config.json
+I, [2025-04-18T07:47:19.158797 #1]  INFO -- request: GET https://api.github.com/user
+I, [2025-04-18T07:47:19.276513 #1]  INFO -- response: Status 200
+I, [2025-04-18T07:47:19.277565 #1]  INFO -- : Sending telemetry with transaction id 'bd975d16-ab8c-488f-b360-3aaa9c42befc'
