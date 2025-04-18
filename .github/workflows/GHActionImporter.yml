@@ -67,7 +67,6 @@ jobs:
       - name: AuditlADOActionImporter
         continue-on-error: true
         run: |
-          cd HomeGHAImporter 
           while IFS=, read -r teamproject; do
           if [ "$teamproject" != "teamproject" ]; then # Skip the header row
             gh actions-importer audit azure-devops --output-dir ./HomeGHAImporter -p "$teamproject"
