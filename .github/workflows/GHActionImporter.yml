@@ -71,7 +71,7 @@ jobs:
           if [ "$teamproject" != "teamproject" ]; then # Skip the header row
             gh actions-importer audit azure-devops --output-dir ./HomeGHAImporter -p "$teamproject"
           fi
-          done < <(cut -d',' -f1 ./HomeADO2GH/team-projects.csv)
+          done < <(cut -d',' -f2 ./HomeADO2GH/team-projects.csv)
       - name: ForecastADOActionImporter
         continue-on-error: true
         run: |
