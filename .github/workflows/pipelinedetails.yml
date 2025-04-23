@@ -1,0 +1,103 @@
+# This is a basic workflow to help you get started with Actions
+ 
+name: Get Report from ADO Pipeline
+ 
+# Controls when the workflow will run
+on:
+#   push:
+#     branches:
+#       - develop
+  #Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      AdoPat:
+        description: 'Input ADO PAT'
+        required: true
+        default: 'none'
+    #   AdoOrg:
+    #     description: 'input ADO Org'
+    #     required: true
+    #     default: 'COP-ADS'
+    #   AdoPrj:
+    #     description: 'Input ADO Project Name'
+    #     required: true
+    #     default: 'none'
+    #   GhOrg:
+    #     description: 'Input GH Org'
+    #     required: true
+    #     default: 'COP-AAD'
+    #   GhPat:
+    #     description: 'Input GH PAT'
+    #     required: true
+    #     default: 'none'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  Report-ADO:
+    # The type of runner that the job will run on
+    runs-on:
+      group : ubuntu-latest
+
+    env:
+      GITHUB_ACCESS_TOKEN : ${{ github.token }}
+      GITHUB_INSTANCE_URL : "https://github.com"
+      AZURE_DEVOPS_ACCESS_TOKEN : ${{ github.event.inputs.AdoPat }}
+      AZURE_DEVOPS_INSTANCE_URL : "https://dev.azure.com"
+    #   AZURE_DEVOPS_ORGANIZATION : ${{ github.event.inputs.AdoOrg }}
+    #   AZURE_DEVOPS_PROJECT : ${{ github.event.inputs.AdoPrj }}
+                 
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      #- uses: actions4gh/setup-gh@v1
+
+      # Runs a single command using the runners shell
+      - name: CheckGH Version
+        run: gh --version
+
+      - name: InstalllADOActionImporter
+        run: |
+          gh extension install github/gh-actions-importer
+
+      - name: updateADOActionImporter
+        continue-on-error: true
+        run: |
+          gh actions-importer update
+
+      - name: AuditAndForcastADOActionImporter
+        continue-on-error: true
+        run: |
+          run_audit() {
+          local input_file="$1"
+
+          while IFS=',' read -r org project; do
+            if [[ -n "$org" && -n "$project" ]]; then
+            output_dir="$GITHUB_WORKSPACE/Data/$org/Pipelines/$project/"
+            # mkdir -p "$output_dir"
+            echo "Creating directory: $output_dir"
+            cd "$output_dir" || exit
+            echo "gh actions-importer audit azure-devops --output-dir "$output_dir""
+            else
+            echo "Skipping line due to missing data: org='$org', project='$project'"
+            fi
+          done < "$input_file"
+          }
+
+          INPUT_FILE="$GITHUB_WORKSPACE/Data/pipeline_details.csv"
+
+          if [[ -f "$INPUT_FILE" ]]; then
+            echo "Running audit for pipelines listed in $INPUT_FILE..."
+            run_audit "$INPUT_FILE"
+          else
+            echo "Input file not found: $INPUT_FILE"
+            exit 1
+          fi 
+        
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.AdoPrj }}
+          path: $GITHUB_WORKSPACE/Data/$ADO_ORG/Pipelines/   
