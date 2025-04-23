@@ -30,6 +30,7 @@ try {
         $reposDir = "$ppath\$organization\$projectName\Repos"
         $pipelinesDir = "$ppath\$organization\$projectName\Pipelines"
         $releasesDir = "$ppath\$organization\$projectName\Releases"
+        $serviceConnectionsDir = "$ppath\$organization\$projectName\ServiceConnections"
 
         if (-not (Test-Path -Path $reposDir)) {
             New-Item -ItemType Directory -Path $reposDir -Force | Out-Null
@@ -44,6 +45,11 @@ try {
         if (-not (Test-Path -Path $releasesDir)) {
             New-Item -ItemType Directory -Path $releasesDir -Force | Out-Null
             Write-Output "Created directory: $releasesDir"
+        }
+        
+        if (-not (Test-Path -Path $serviceConnectionsDir)) {
+            New-Item -ItemType Directory -Path $serviceConnectionsDir -Force | Out-Null
+            Write-Output "Created directory: $serviceConnectionsDir"
         }
 
         # Get all repositories in the project
@@ -80,7 +86,7 @@ try {
 
             try {
                 # Get the Classic pipeline definition
-                $pipelineUrl = "https://dev.azure.com/$organization/$projectName/_apis/build/definitions/$pipelineId?api-version=6.0"
+                $pipelineUrl = "https://dev.azure.com/$organization/$projectName/_apis/build/definitions/$pipelineId`?api-version=6.0"
                 Write-Output "Fetching pipeline definition from $pipelineUrl"
                 $pipelineResponse = Invoke-RestMethod -Uri $pipelineUrl -Method Get -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
 
@@ -111,7 +117,7 @@ try {
             if ($null -ne $releaseId -and $releaseId -is [int]) {
                 try {
                     # Get the release definition
-                    $releaseUrl = "https://vsrm.dev.azure.com/$organization/$projectName/_apis/release/definitions/$releaseId?api-version=6.0"
+                    $releaseUrl = "https://vsrm.dev.azure.com/$organization/$projectName/_apis/release/definitions/$releaseId`?api-version=6.0"
                     Write-Output "Fetching release definition from $releaseUrl"
                     $releaseResponse = Invoke-RestMethod -Uri $releaseUrl -Method Get -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
 
@@ -129,6 +135,27 @@ try {
                 }
             } else {
                 Write-Error "Invalid release ID: $releaseId"
+            }
+        }
+        # Get all service connections in the project
+        $serviceConnectionsUrl = "https://dev.azure.com/$organization/$projectName/_apis/serviceendpoint/endpoints?api-version=6.0-preview.4"
+        Write-Output "Fetching service connections from $serviceConnectionsUrl"
+        $serviceConnectionsResponse = Invoke-RestMethod -Uri $serviceConnectionsUrl -Method Get -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
+
+        foreach ($serviceConnection in $serviceConnectionsResponse.value) {
+            $serviceConnectionId = $serviceConnection.id
+            $serviceConnectionName = $serviceConnection.name
+            Write-Output "Processing service connection: $serviceConnectionName (ID: $serviceConnectionId)"
+
+            try {
+                # Save service connection details to a file
+                $serviceConnectionFilePath = "$serviceConnectionsDir\$serviceConnectionName-service-connection.yml"
+                $serviceConnection | ConvertTo-Yaml | Out-File -FilePath $serviceConnectionFilePath
+
+                Write-Output "Service connection details saved as $serviceConnectionFilePath"
+            } catch {
+                Write-Error "Failed to process service connection ${serviceConnectionName}: $_"
+                Write-Output "Error details: $($_.Exception.Response.Content)"
             }
         }
     }
