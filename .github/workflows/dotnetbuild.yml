@@ -12,21 +12,21 @@ jobs:
 
         steps:
         - name: Checkout code
-            uses: actions/checkout@v3
+          uses: actions/checkout@v3
 
         - name: Setup .NET
-            uses: actions/setup-dotnet@v3
-            with:
-                dotnet-version: '6.0.x' # Adjust to your .NET version
+          uses: actions/setup-dotnet@v3
+          with:
+              dotnet-version: '6.0.x' # Adjust to your .NET version
 
-        - name: Restore dependencies
-            run: dotnet restore
+        - name: NuGet restore
+          run: dotnet restore --configfile .nuget/NuGet.config
 
         - name: Build the solution
-            run: dotnet build --no-restore --configuration Release
+          run: dotnet build --no-restore --configuration Release
 
         - name: Run tests
-            run: dotnet test --no-build --verbosity normal
+          run: dotnet test --no-build --verbosity normal
 
     publish:
         needs: build
@@ -34,20 +34,20 @@ jobs:
 
         steps:
         - name: Checkout code
-            uses: actions/checkout@v3
+          uses: actions/checkout@v3
 
         - name: Setup .NET
-            uses: actions/setup-dotnet@v3
-            with:
-                dotnet-version: '6.0.x' # Adjust to your .NET version
+          uses: actions/setup-dotnet@v3
+          with:
+              dotnet-version: '6.0.x' # Adjust to your .NET version
 
-        - name: Restore dependencies
-            run: dotnet restore
+        - name: NuGet restore
+          run: dotnet restore --configfile .nuget/NuGet.config
 
         - name: Pack NuGet package
-            run: dotnet pack --no-build --configuration Release -o ./nupkgs
+          run: dotnet pack --no-build --configuration Release -o ./nupkgs
 
         - name: Publish to GitHub Packages
-            env:
-                NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: dotnet nuget push ./nupkgs/*.nupkg --source "github"
+          env:
+              NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: dotnet nuget push ./nupkgs/*.nupkg --source "github"

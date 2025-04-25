@@ -18,10 +18,10 @@ on:
     #     description: 'input ADO Org'
     #     required: true
     #     default: 'COP-ADS'
-    #   AdoPrj:
-    #     description: 'Input ADO Project Name'
-    #     required: true
-    #     default: 'none'
+      AdoPrj:
+        description: 'Input ADO Project Name'
+        required: true
+        default: 'none'
     #   GhOrg:
     #     description: 'Input GH Org'
     #     required: true

@@ -1,0 +1,16 @@
+name: Use Reusable .NET Build and Publish Workflow
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    build-and-publish:
+        uses: ./.github/workflows/reusableworkflows/reusabledotnetbuild.yml
+        with:
+            solution-path: 'src/Cop.Common.AuthenticationLibrary.sln' # Path to your solution file
+            nuget-api-key: ${{ secrets.NUGET_API_KEY }} # NuGet API Key for publishing
+        secrets:
+            github-token: ${{ secrets.GITHUB_TOKEN }} # GitHub Token for authentication
