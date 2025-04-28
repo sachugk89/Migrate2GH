@@ -1,0 +1,43 @@
+name: "Build and Publish npm Package"
+description: "Builds an npm package and publishes it to GitHub Packages"
+author: "Your Name or Organization"
+inputs:
+  node_version:
+    description: "Node.js version to use"
+    required: true
+    default: "16"
+  registry_url:
+    description: "Registry URL for publishing the package"
+    required: true
+    default: "https://npm.pkg.github.com/"
+  github_token:
+    description: "GitHub token for authentication"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: "npm"
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Build the package
+    - name: Build the package
+      run: npm run build
+
+    # Publish the package to GitHub Packages
+    - name: Publish to GitHub Packages
+      run: npm publish --registry ${{ inputs.registry_url }}
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.github_token }}

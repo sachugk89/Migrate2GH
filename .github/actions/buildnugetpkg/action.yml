@@ -1,0 +1,40 @@
+name: "Build NuGet Package"
+description: "Builds a NuGet package from a .NET project or solution"
+author: "Your Name or Organization"
+inputs:
+  solution-path:
+    description: "Path to the .sln or .csproj file"
+    required: true
+  configuration:
+    description: "Build configuration (e.g., Release or Debug)"
+    required: true
+    default: "Release"
+  output-directory:
+    description: "Directory to output the built NuGet package"
+    required: true
+    default: "./nupkgs"
+
+runs:
+  using: "composite"
+  steps:
+    # Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup .NET
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: "7.x" # Specify the required .NET version
+
+    # Restore NuGet packages
+    - name: Restore NuGet packages
+      run: dotnet restore ${{ inputs.solution-path }}
+
+    # Build the solution
+    - name: Build the solution
+      run: dotnet build ${{ inputs.solution-path }} --configuration ${{ inputs.configuration }} --no-restore
+
+    # Pack the NuGet package
+    - name: Pack NuGet package
+      run: dotnet pack ${{ inputs.solution-path }} --configuration ${{ inputs.configuration }} --no-build --output ${{ inputs.output-directory }}

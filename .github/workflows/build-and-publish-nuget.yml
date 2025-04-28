@@ -1,0 +1,28 @@
+name: Build and Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Use the custom action to build the NuGet package
+      - name: Build NuGet Package
+        uses: ./.github/actions/buildnugetpkg
+        with:
+          solution-path: 'src/MySolution.sln' # Path to the solution file
+          configuration: 'Release'
+          output-directory: './nupkgs'
+
+      # Use the custom action to publish the NuGet package
+      - name: Publish NuGet Package
+        uses: ./.github/actions/publishnugetpkg
+        with:
+          package-path: './nupkgs/*.nupkg' # Path to the built NuGet package
+          source-url: 'https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json'
+          api-key: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication

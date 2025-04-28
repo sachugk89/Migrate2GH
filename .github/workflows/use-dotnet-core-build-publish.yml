@@ -1,0 +1,19 @@
+name: Use Reusable .NET Build and Publish Workflow
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+  
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Use .NET  Core Build and Publish Action
+        uses: ./.github/actions/dotnetcore-build-publish
+        with:
+          solution-path: 'src/MySolution.sln' # Path to the solution file
+          package-version: '1.0.0' # Version of the package
+          github-token: ${{ secrets.GITHUB_TOKEN }} # GitHub Token for authentication

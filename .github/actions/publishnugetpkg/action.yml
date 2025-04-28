@@ -1,0 +1,21 @@
+name: "Publish NuGet Package"
+description: "Publishes a NuGet package to a NuGet feed or GitHub Packages"
+author: "Your Name or Organization"
+inputs:
+  package-path:
+    description: "Path to the .nupkg file to publish"
+    required: true
+  source-url:
+    description: "NuGet source URL (e.g., GitHub Packages URL)"
+    required: true
+    default: "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+  api-key:
+    description: "API key for authentication with the NuGet source"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Publish the NuGet package
+    - name: Publish NuGet Package
+      run: dotnet nuget push ${{ inputs.package-path }} --source ${{ inputs.source-url }} --api-key ${{ inputs.api-key }}

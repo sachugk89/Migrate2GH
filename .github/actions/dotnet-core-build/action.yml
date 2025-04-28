@@ -1,0 +1,48 @@
+name: Reusable .NET Build and Publish Workflow
+
+on:
+    workflow_call:
+        inputs:
+            solution-path:
+                description: 'Path to the .sln file'
+                required: true
+                type: string
+            package-version:
+                description: 'Version of the package to publish'
+                required: true
+                type: string
+        secrets:
+            github-token:
+                description: 'GitHub Token for authentication'
+                required: true
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout the code
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            # Setup .NET
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v3
+              with:
+                  dotnet-version: '7.x' # Specify the required .NET version
+
+            # Restore NuGet packages
+            - name: Restore NuGet packages
+              run: dotnet restore ${{ inputs.solution-path }}
+
+            # Build the solution
+            - name: Build the solution
+              run: dotnet build ${{ inputs.solution-path }} --configuration Release --no-restore
+
+            # Pack NuGet package
+            - name: Pack NuGet package
+              run: dotnet pack ${{ inputs.solution-path }} --configuration Release --no-build --output ./nupkgs /p:PackageVersion=${{ inputs.package-version }}
+
+            # Publish to GitHub Packages
+            - name: Publish to GitHub Packages
+              run: dotnet nuget push ./nupkgs/*.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.github-token }}

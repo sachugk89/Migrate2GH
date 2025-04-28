@@ -1,0 +1,46 @@
+name: .NET Build and Publish Package
+
+on:
+    workflow_call:
+        inputs:
+            solution:
+                description: 'Path to the .sln file'
+                required: true
+                type: string
+            package_name:
+                description: 'Name of the package to publish'
+                required: true
+                type: string
+            package_version:
+                description: 'Version of the package to publish'
+                required: true
+                type: string
+            github_token:
+                description: 'GitHub token for authentication'
+                required: true
+                type: string
+
+jobs:
+    build-and-publish:
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout code
+                uses: actions/checkout@v3
+
+            - name: Setup .NET Framework
+                uses: microsoft/setup-msbuild@v2
+
+            - name: Restore NuGet packages
+                run: nuget restore ${{ inputs.solution }}
+
+            - name: Build solution
+                run: msbuild ${{ inputs.solution }} /p:Configuration=Release
+
+            - name: Pack NuGet package
+                run: |
+                    nuget pack ${{ inputs.package_name }}.csproj -Version ${{ inputs.package_version }} -OutputDirectory ./output
+
+            - name: Publish to GitHub Packages
+                run: |
+                    nuget push ./output/${{ inputs.package_name }}.${{ inputs.package_version }}.nupkg -Source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" -ApiKey ${{ inputs.github_token }}

@@ -1,0 +1,20 @@
+name: Use Custom .NET Build and Publish Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+
+    steps:
+      - name: Use .NET Build and Publish Action
+        uses: ./.github/actions/dotnet-build-publish
+        with:
+          solution: 'src/MySolution.sln' # Path to the solution file
+          package_name: 'MyPackage' # Name of the package
+          package_version: '1.0.0' # Version of the package
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication

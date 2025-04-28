@@ -1,0 +1,19 @@
+name: Use Custom npm Build and Publish Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use npm Build and Publish Action
+        uses: ./.github/actions/npm-build-publish
+        with:
+          node_version: "16" # Specify the Node.js version
+          registry_url: "https://npm.pkg.github.com/" # GitHub Packages registry URL
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication

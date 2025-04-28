@@ -1,0 +1,30 @@
+name: "Build npm Package"
+description: "Builds an npm package"
+author: "Your Name or Organization"
+inputs:
+  node-version:
+    description: "Node.js version to use"
+    required: true
+    default: "16"
+
+runs:
+  using: "composite"
+  steps:
+    # Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: "npm"
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Build the package
+    - name: Build the package
+      run: npm run build
