@@ -20,24 +20,41 @@ function Get-AdoRepoDetails {
 
     $baseUrl = "https://dev.azure.com/$organization/$project/_apis/git/repositories/$repository"
 
-    # Get branches
-    $branchesUrl = "$baseUrl/refs?filter=heads&api-version=6.0"
-    $branchesResponse = Invoke-RestMethod -Uri $branchesUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
-    $branches = $branchesResponse.value | Select-Object -ExpandProperty name
+    # Initialize variables
+    $branches = @()
+    $commits = @()
+    $tags = @()
 
-    # Get commits
-    $commitsUrl = "$baseUrl/commits?api-version=6.0"
-    $commitsResponse = Invoke-RestMethod -Uri $commitsUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
-    $commits = $commitsResponse.value | Select-Object -ExpandProperty commitId
+    try {
+        # Get branches
+        $branchesUrl = "$baseUrl/refs?filter=heads&api-version=6.0"
+        $branchesResponse = Invoke-RestMethod -Uri $branchesUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
+        if ($branchesResponse.value) {
+            $branches = $branchesResponse.value | Select-Object -ExpandProperty name
+        }
 
-    # Get tags
-    $tagsUrl = "$baseUrl/refs?filter=tags&api-version=6.0"
-    $tagsResponse = Invoke-RestMethod -Uri $tagsUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
-    $tags = $tagsResponse.value | Select-Object -ExpandProperty name
+        # Get commits
+        $commitsUrl = "$baseUrl/commits?api-version=6.0"
+        $commitsResponse = Invoke-RestMethod -Uri $commitsUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
+        if ($commitsResponse.value) {
+            $commits = $commitsResponse.value | Select-Object -ExpandProperty commitId
+        }
+
+        # Get tags
+        $tagsUrl = "$baseUrl/refs?filter=tags&api-version=6.0"
+        $tagsResponse = Invoke-RestMethod -Uri $tagsUrl -Headers @{Authorization = "Basic $( [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$adoPATPlain")) )"} -Method Get
+        if ($tagsResponse.value) {
+            $tags = $tagsResponse.value | Select-Object -ExpandProperty name
+        }
+    } catch {
+        Write-Error "Failed to fetch details for repository $repository': $_"
+    }
 
     return @{
         Branches = $branches
+        BranchCount = $branches.Count
         Commits = $commits
+        CommitCount = $commits.Count
         Tags = $tags
     }
 }
@@ -71,12 +88,14 @@ foreach ($row in $repoData) {
             Organization = $organization
             Project = $project
             Repository = $repository
+            BranchCount = $repoDetails.BranchCount
+            CommitCount = $repoDetails.CommitCount
             Branches = ($repoDetails.Branches -join ", ")
             Commits = ($repoDetails.Commits -join ", ")
             Tags = ($repoDetails.Tags -join ", ")
         }
     } catch {
-        Write-Error "Failed to process repository $repository in project $project`: $_"
+        Write-Error "Failed to process repository $repository in project $project': $_"
     }
 }
 

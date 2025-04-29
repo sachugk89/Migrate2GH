@@ -19,25 +19,42 @@ function Get-GitHubRepoDetails {
 
     $baseUrl = "https://api.github.com/repos/$organization/$repository"
 
-    # Get branches
-    $branchesUrl = "$baseUrl/branches"
-    $branchesResponse = Invoke-RestMethod -Uri $branchesUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
-    $branches = $branchesResponse | Select-Object -ExpandProperty name
+    # Initialize variables
+    $branches = @()
+    $commits = @()
+    $tags = @()
 
-    # Get tags
-    $tagsUrl = "$baseUrl/tags"
-    $tagsResponse = Invoke-RestMethod -Uri $tagsUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
-    $tags = $tagsResponse | Select-Object -ExpandProperty name
+    try {
+        # Get branches
+        $branchesUrl = "$baseUrl/branches"
+        $branchesResponse = Invoke-RestMethod -Uri $branchesUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
+        if ($branchesResponse) {
+            $branches = $branchesResponse | Select-Object -ExpandProperty name
+        }
 
-    # Get commits (limited to the latest 100 commits)
-    $commitsUrl = "$baseUrl/commits?per_page=100"
-    $commitsResponse = Invoke-RestMethod -Uri $commitsUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
-    $commits = $commitsResponse | Select-Object -ExpandProperty sha
+        # Get tags
+        $tagsUrl = "$baseUrl/tags"
+        $tagsResponse = Invoke-RestMethod -Uri $tagsUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
+        if ($tagsResponse) {
+            $tags = $tagsResponse | Select-Object -ExpandProperty name
+        }
+
+        # Get commits (limited to the latest 100 commits)
+        $commitsUrl = "$baseUrl/commits?per_page=100"
+        $commitsResponse = Invoke-RestMethod -Uri $commitsUrl -Headers @{Authorization = "Bearer $githubPATPlain"} -Method Get
+        if ($commitsResponse) {
+            $commits = $commitsResponse | Select-Object -ExpandProperty sha
+        }
+    } catch {
+        Write-Error "Failed to fetch details for repository $repository`: $_"
+    }
 
     return @{
         Branches = $branches
+        BranchCount = $branches.Count
         Tags = $tags
         Commits = $commits
+        CommitCount = $commits.Count
     }
 }
 
@@ -68,6 +85,8 @@ foreach ($row in $repoData) {
         $results += [PSCustomObject]@{
             Organization = $organization
             Repository = $repository
+            BranchCount = $repoDetails.BranchCount
+            CommitCount = $repoDetails.CommitCount
             Branches = ($repoDetails.Branches -join ", ")
             Tags = ($repoDetails.Tags -join ", ")
             Commits = ($repoDetails.Commits -join ", ")
